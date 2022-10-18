@@ -13,11 +13,11 @@ int print_char(va_list ap, params_t *params)
 	unsigned int pad = 1, sum = 0, ch = va_arg(ap, int);
 
 	if (params->minus_flag)
-		sum += putchar(ch);
+		sum += _putchar(ch);
 	while (pad++ < params->width)
-		sum += putchar(pad_char);
+		sum += _putchar(pad_char);
 	if (!params->minus_flag)
-		sum += putchar(ch);
+		sum += _putchar(ch);
 	return (sum);
 }
 
@@ -32,7 +32,7 @@ int print_percent(va_list ap, params_t *params)
 {
 	(void)ap;
 	(void)params;
-	return (putchar('%'));
+	return (_putchar('%'));
 }
 
 /**
@@ -52,7 +52,7 @@ int print_string(va_list ap, params_t *params)
 		case 1:
 			str = NULL_STRING;
 
-	j = pad = strlen(str);
+	j = pad = _strlen(str);
 	if (params->precision < pad)
 		j = pad = params->precision;
 
@@ -60,20 +60,20 @@ int print_string(va_list ap, params_t *params)
 	{
 		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += putchar(*str++);
+				sum += _putchar(*str++);
 
 		else
-			sum += puts(str);
+			sum += _puts(str);
 	}
 	while (j++ < params->width)
-		sum += putchar(pad_char);
+		sum += _putchar(pad_char);
 	if (!params->minus_flag)
 	{
 		if (params->precision != UINT_MAX)
 			for (i = 0; i < pad; i++)
-				sum += putchar(*str++);
+				sum += _putchar(*str++);
 	else
-		sum += puts(str);
+		sum += _puts(str);
 	}
 	return (sum);
 }
