@@ -8,6 +8,12 @@
 #include <limits.h>
 #include <stdlib.h>
 #define NULL_STRING "(null)"
+#define OUTPUT_BUF_SIZE 1024
+#define FIELD_BUF_SIZE 50
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define CONVERT_LOWERCASE	1
+#define CONVERT_UNSIGNED	2
+#define BUF_FLUSH -1
 
 /**
  * struct parameters - parameters struct
@@ -49,6 +55,11 @@ typedef struct specifier
 	char *specifier;
 	int (*f)(va_list, params_t *);
 }  specifier_t;
+
+/* _put.c module */
+
+int _puts(char *str);
+int _putchar(int c);
 
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
