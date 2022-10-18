@@ -61,10 +61,23 @@ typedef struct specifier
 int _puts(char *str);
 int _putchar(int c);
 
+/* params.c module */
+void init_params(params_t *params, va_list ap);
+
+/* _prinf.c module */
+int _printf(const char *format, ...);
+
 /* print_functions.c module */
 int print_char(va_list ap, params_t *params);
 int print_string(va_list ap, params_t *params);
 int print_percent(va_list ap, params_t *params);
 
+/* specifier.c module */
+
+int (*get_specifier(char *s))(va_list ap, params_t *params);
+int get_print_func(char *s, va_list ap, params_t *params);
+int get_flag(char *s, params_t *params);
+int get_modifier(char *s, params_t *params);
+char *get_width(char *s, params_t *params, va_list ap);
 
 #endif
