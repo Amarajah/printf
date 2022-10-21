@@ -27,7 +27,7 @@ unsigned int convert_s(va_list args, buffer_t *output,
 	char *str, *null = "(null)";
 	int size;
 	unsigned int ret = 0;
-		
+
 	(void)flags;
 	(void)len;
 
