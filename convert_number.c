@@ -162,7 +162,7 @@ unsigned int convert_u(va_list args, buffer_t *output,
 	if (len == LONG)
 		num = va_arg(args, unsigned long int);
 	else
-		num = va_arg(args, unsigned int)
+		num = va_arg(args, unsigned int);
 	if (len == SHORT)
 		num = (unsigned short)num;
 
